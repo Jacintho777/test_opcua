@@ -1,7 +1,7 @@
+from dataclasses import dataclass
 from datetime import datetime
 from opcua import Client
 import pandas as pd
-
 
 url = "opc.tcp://192.168.11.104:4840"
 client = Client(url)
@@ -19,7 +19,7 @@ temp_values,cycle_time_values,energy_values = [],[],[]
 
 def update_values() :
 
-    global cycle_time,nb_prod,cycle_time_dur
+    global cycle_time,nb_prod,cycle_time_dur,database
 
     Temp = client.get_node("ns= 2; i= 3")
     Temperature = Temp.get_value()
@@ -42,7 +42,7 @@ def update_values() :
 
 def update_plots(): #function to call repeatedly to update the Graph object in the dashboard
 
-    global temp_values,cycle_time_values,energy_values
+    global temp_values,cycle_time_values,energy_value
 
     temp,cy_time,energy = update_values()
 
