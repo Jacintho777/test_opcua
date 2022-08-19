@@ -1,6 +1,6 @@
 from dash import Dash,html,dcc
 from dash.dependencies import Input, Output
-from client_prod_simul_test import update_plots
+from client_prod_simul_test import *
 
 app = Dash(__name__)
 
