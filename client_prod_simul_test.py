@@ -1,5 +1,6 @@
 from datetime import datetime
 from opcua import Client
+import pandas as pd
 
 
 url = "opc.tcp://192.168.11.104:4840"
