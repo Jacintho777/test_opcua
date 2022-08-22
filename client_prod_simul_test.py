@@ -1,16 +1,16 @@
 from datetime import datetime
-from opcua import Client
+# from opcua import Client
 import database
 # import pandas as pd
 
-url = "opc.tcp://192.168.11.111:4840"
-client = Client(url)
+# url = "opc.tcp://192.168.11.111:4840"
+# client = Client(url)
 
-try:
-    client.connect()
-    print("Client connected")
-except:
-    print('Connexion failed !')
+# try:
+#     client.connect()
+#     print("Client connected")
+# except:
+#     print('Connexion failed !')
 
 cycle_time,cycle_time_dur = datetime.now(),0.0
 
