@@ -8,7 +8,7 @@ server = app.server
 
 app.layout = html.Div(
             children = [
-                dcc.Interval(id = 'grph_interval',interval = 1000, n_intervals=0), #intervall must be set on the tempo of the database growth
+                dcc.Interval(id = 'grph_interval',interval = 7000, n_intervals=0), #intervall must be set on the tempo of the database growth
                 html.H1('OPC-UA appTest',style={'text-align':'center'}),
                 dcc.Graph(id = 'grph',style = {'margin-left':'20rem','margin-right':'20rem'}),
             ]
