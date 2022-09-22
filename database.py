@@ -3,10 +3,10 @@ import psycopg2
 def load_data():
     
     connection = psycopg2.connect(
-		host = "ec2-54-228-32-29.eu-west-1.compute.amazonaws.com",
-		database = "dbc63e9s4ghqgd",
-		user = "cufhmdxtaynjan",
-		password = "65562226466934bbc1246b06b1349ab4abb097a5bef4d25da9ef23b616f9020b",
+		host = "ec2-3-213-228-206.compute-1.amazonaws.com",
+		database = "d4ie7d66ast1c7",
+		user = "pndadghhtmavlx",
+		password = "1dfcd638c2929d01b08597ed226b6a9469373bb5719f97a4f91abd314ac664b7",
 		port = "5432",
 		)
     cur = connection.cursor()

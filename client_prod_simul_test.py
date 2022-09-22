@@ -1,16 +1,16 @@
 from datetime import datetime
-# from opcua import Client
+from opcua import Client
 import database
 # import pandas as pd
 
-# url = "opc.tcp://192.168.11.111:4840"
-# client = Client(url)
+url = "opc.tcp://192.168.11.110:4840"
+client = Client(url)
 
-# try:
-#     client.connect()
-#     print("Client connected")
-# except:
-#     print('Connexion failed !')
+try:
+    client.connect()
+    print("Client connected")
+except:
+    print('Connexion failed !')
 
 cycle_time,cycle_time_dur = datetime.now(),0.0
 
@@ -23,18 +23,18 @@ def update_values() :
     """Rather than getting the input values from the OPC-UA server,
     let's get them from the database"""
 
-    # Temp = client.get_node("ns= 2; i= 3")
-    # Temperature = Temp.get_value()
+    Temp = client.get_node("ns= 2; i= 3")
+    Temperature = Temp.get_value()
 
-    # Cycle_time = client.get_node("ns= 2; i= 8")
-    # cycle_time_dur = Cycle_time.get_value()
+    Cycle_time = client.get_node("ns= 2; i= 8")
+    cycle_time_dur = Cycle_time.get_value()
 
-    # Energy = client.get_node("ns= 2; i= 7")
-    # energy_cons = Energy.get_value()
+    Energy = client.get_node("ns= 2; i= 7")
+    energy_cons = Energy.get_value()
 
-    # print(Temperature, cycle_time_dur, energy_cons)
+    print(Temperature, cycle_time_dur, energy_cons)
 
-    Temperature,cycle_time_dur,energy_cons = database.load_data()
+    # Temperature,cycle_time_dur,energy_cons = database.load_data()
 
     return Temperature,cycle_time_dur,energy_cons
 
