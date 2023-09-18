@@ -1,5 +1,5 @@
 from datetime import datetime
-from opcua import Client, ClientDiscovery
+from opcua import Client
 import database
 # import pandas as pd
 
@@ -15,18 +15,18 @@ endpoint with no need to hard-code it !
 """
 
 # Create a Discovery Client
-discovery_client = ClientDiscovery()
+client = Client(url="pc.tcp://127.0.0.1:4848/freeopcua/server")
 
-# Discover available servers on the network
-available_servers = discovery_client.find_servers()
+# # Discover available servers on the network
+# available_servers = discovery_client.find_servers_on_network()
 
-# Choose a server from the list (you may implement a selection mechanism)
-selected_server = available_servers[0]
+# # Choose a server from the list (you may implement a selection mechanism)
+# selected_server = available_servers[0]
 
-print(selected_server.endpoint)
+# print(selected_server.endpoint)
 
-# Connect to the selected server
-client = Client(selected_server.endpoint)
+# # Connect to the selected server
+# client = Client(selected_server.endpoint)
 
 ###################################################################
 
