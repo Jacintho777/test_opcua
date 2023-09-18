@@ -12,7 +12,7 @@ server = app.server
 app.layout = html.Div(
             children = [
                 dbc.Row([
-                dcc.Interval(id = 'grph_interval',interval = 7000, n_intervals=0), #intervall must be set on the tempo of the database growth
+                dcc.Interval(id = 'grph_interval',interval = 500, n_intervals=0), #intervall must be set on the tempo of the database growth
                 dbc.Col(lg = 2),
                 dbc.Col([
                 dbc.Row([html.H1('OPC-UA appTest',style={'text-align':'center'})]),
@@ -36,4 +36,4 @@ def update(n_intervals):
 
 if __name__ == '__main__':
 
-    app.run_server(debug = True,host = '192.168.11.110',port = 8001)
+    app.run_server(debug = True,host = '192.168.1.78',port = 8001)

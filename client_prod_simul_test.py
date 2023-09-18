@@ -1,10 +1,34 @@
 from datetime import datetime
-from opcua import Client
+from opcua import Client, ClientDiscovery
 import database
 # import pandas as pd
 
-url = "opc.tcp://192.168.11.110:4840"
-client = Client(url)
+# url = "opc.tcp://192.168.1.78:4848"
+# client = Client(url)
+
+#################### Discovery Client test ##########################
+
+"""
+Here the idea is to automatically find the OPCUA server
+endpoint with no need to hard-code it !
+
+"""
+
+# Create a Discovery Client
+discovery_client = ClientDiscovery()
+
+# Discover available servers on the network
+available_servers = discovery_client.find_servers()
+
+# Choose a server from the list (you may implement a selection mechanism)
+selected_server = available_servers[0]
+
+print(selected_server.endpoint)
+
+# Connect to the selected server
+client = Client(selected_server.endpoint)
+
+###################################################################
 
 try:
     client.connect()
